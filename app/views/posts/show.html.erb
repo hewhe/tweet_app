@@ -6,4 +6,13 @@
 	<p>
 		<%= @post.content %>
 	</p>
+	<p>
+		<%= link_to("編集", edit_post_path) %>
+	</p>
+	<p>
+		<%= link_to("削除", post_path(@post.id), method: :delete) %>
+	</p>
 </div>
+
+<!-- なぜかrouteに使えない
+"posts/#{@post.id}/edit" -->

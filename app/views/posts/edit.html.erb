@@ -1,2 +1,18 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>PostEditページ</h1>
+
+<div>
+	<% if @post.errors.any? %>
+		<% @post.errors.full_messages.each do |error| %>
+			<%= error %>
+		<% end %>
+	<% end %>
+</div>
+
+
+<div>
+	<%= form_tag(post_path, method: :patch) do %>
+		<%= text_field_tag :title, @post.title %><br>
+		<%= text_area_tag :content, @post.content %><br>
+		<%= submit_tag("update") %>
+	<% end %>
+</div>
