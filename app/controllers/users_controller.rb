@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_nparams)
+    @user.image_name = "d_image.jpg"
   	if @user.save
   		flash[:notice] = "登録！！"
   		redirect_to users_path
@@ -27,6 +28,12 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
+
+    if image = params[:image]
+      @user.image_name = "#{@user.id}.jpg" #jpgだけ？←違う
+      File.binwrite("public/#{@user.image_name}", image.read)
+    end
+
   	if @user.update(user_nparams)
   		flash[:notice] = "成功！！！"
   		redirect_to users_path
@@ -38,7 +45,7 @@ class UsersController < ApplicationController
 	private
 
 		def user_nparams
-			params.permit(:name, :email)
+			params.permit(:name, :email, :image_name)
 		end
 
 		def user_params

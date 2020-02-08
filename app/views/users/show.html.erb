@@ -1,5 +1,6 @@
 <h1>UsersShowページ</h1>
 
+<%= image_tag "/#{@user.image_name}", :size =>'100x100' %><br>
 <%= @user.name %><br>
 <%= @user.email %><br>
 <%= link_to("編集", edit_user_path(@user.id)) %>
