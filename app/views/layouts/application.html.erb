@@ -24,6 +24,12 @@
     <li>
       <%= link_to("New", "/posts/new") %>
     </li>
+    <li>
+      <%= link_to("User一覧", "/users") %>
+    </li>
+    <li>
+      <%= link_to("新規登録", new_user_path) %>
+    </li>
   </ul>
 </header>
   <% if flash[:notice] %>

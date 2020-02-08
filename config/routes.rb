@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'about' => "homes#about"
 
   resources :posts
+  resources :users
 
   #ダメなルート
   # get 'posts/index' => "posts#index"

@@ -1,0 +1,18 @@
+<h1>UsersEdit</h1>
+
+<div>
+	<% if @user.errors.any? %>
+		<% @user.errors.full_messages.each do |error| %>
+			<%= error %>
+		<% end %>
+	<% end %>
+</div>
+
+
+<div>
+	<%= form_tag(user_path, method: :patch) do %>
+		<%= text_field_tag :name, @user.name %><br>
+		<%= text_area_tag :content, @user.email %><br>
+		<%= submit_tag("update") %>
+	<% end %>
+</div>
