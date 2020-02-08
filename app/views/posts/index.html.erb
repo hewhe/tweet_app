@@ -1,0 +1,9 @@
+<p>PostIndexページ</p>
+<div class="post_all">
+	<% @posts.each do |post| %>
+		<div class="post">
+			<%= link_to("#{post.title}", "/posts/#{post.id}") %>
+			<%= post.content %>
+		</div>
+	<% end %>
+</div>

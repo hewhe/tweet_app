@@ -10,6 +10,22 @@
   </head>
 
   <body>
+<header>
+  <div class="toppage">
+    <%= link_to("TweetApp", "/") %>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <%= link_to("TweetAbout", about_path) %>
+    </li>
+    <li>
+      <%= link_to("PostIndex", "/posts") %>
+    </li>
+    <li>
+      <%= link_to("New", "/posts/new") %>
+    </li>
+  </ul>
+</header>
     <%= yield %>
   </body>
 </html>
