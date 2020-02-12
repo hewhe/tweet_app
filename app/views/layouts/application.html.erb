@@ -17,7 +17,8 @@
   <ul class="header-menus">
     <% if logged_in? %>
       <p>ようこそ</p>
-      <%= current_user.name %>
+      <%= @current_user.id %> <!-- どっちもいける同じようなものだから -->
+      <%= set_current_user.name %>
       <li>
         <%= link_to("TweetAbout", about_path) %>
       </li>

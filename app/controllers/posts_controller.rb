@@ -63,7 +63,7 @@ class PostsController < ApplicationController
       #   flash[:notice] = "権限なし"
       #   redirect_to "/users/index"
       post = Post.find(params[:id])
-      if current_user.id != post.user.id
+      if @current_user.id != post.user.id
         flash[:notice] = "権限なし"
         redirect_to users_path
       end

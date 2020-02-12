@@ -60,8 +60,8 @@ class UsersController < ApplicationController
        #   flash[:notice] = "権限なし"
        #   redirect_to "/users/index"
        # end
-       @user = User.find(params[:id])
-       if current_user.id != @user.id
+       user = User.find(params[:id])
+       if @current_user.id != user.id
          flash[:notice] = "権限なし"
          redirect_to users_path
        end
