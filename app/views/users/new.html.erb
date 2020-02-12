@@ -11,8 +11,10 @@
 
 <div>
 	<%= form_tag(users_path, method: :post) do %>
+		<P>name</P><br>
 		<%= text_field_tag :name, @user.name %><br>
-		<%= text_area_tag :email, @user.email %><br>
+		<p>email</p><br>
+		<%= email_field_tag :email, @user.email %><br>
 		<%= submit_tag("create") %>
 	<% end %>
 

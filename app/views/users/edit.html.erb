@@ -13,8 +13,10 @@
 	<%= form_tag(user_path, method: :patch, multipart: true) do %>
 		<%= image_tag "/#{@user.image_name}", :size =>'100x100' %><br>
 		<%= file_field_tag :image %><br>
+		<p>name</p><br>
 		<%= text_field_tag :name, @user.name %><br>
-		<%= text_area_tag :content, @user.email %><br>
+		<p>email</p><br>
+		<%= email_field_tag :email, @user.email %><br>
 		<%= submit_tag("update") %>
 	<% end %>
 </div>
