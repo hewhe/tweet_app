@@ -15,21 +15,32 @@
     <%= link_to("TweetApp", "/") %>
   </div>
   <ul class="header-menus">
-    <li>
-      <%= link_to("TweetAbout", about_path) %>
-    </li>
-    <li>
-      <%= link_to("PostIndex", "/posts") %>
-    </li>
-    <li>
-      <%= link_to("New", "/posts/new") %>
-    </li>
-    <li>
-      <%= link_to("User一覧", "/users") %>
-    </li>
-    <li>
-      <%= link_to("新規登録", new_user_path) %>
-    </li>
+    <% if logged_in? %>
+      <p>ようこそ</p>
+      <%= current_user.name %>
+      <li>
+        <%= link_to("TweetAbout", about_path) %>
+      </li>
+      <li>
+        <%= link_to("PostIndex", "/posts") %>
+      </li>
+      <li>
+        <%= link_to("New", "/posts/new") %>
+      </li>
+      <li>
+        <%= link_to("User一覧", "/users") %>
+      </li>
+      <li>
+        <%= link_to("ログアウト", "logout", method: :delete) %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to("ログイン", "login",) %>
+      </li>
+      <li>
+        <%= link_to("新規登録", new_user_path) %>
+      </li>
+    <% end %>
   </ul>
 </header>
   <% if flash[:notice] %>

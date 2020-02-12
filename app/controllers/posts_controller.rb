@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user
   def index
   	@posts = Post.all
   end
@@ -56,5 +57,16 @@ class PostsController < ApplicationController
   	def post_params
   		params.require(:post).permit(:title, :content)
   	end
+
+    def correct_user
+      # if current_user.id != params[:id].to_i これはできない
+      #   flash[:notice] = "権限なし"
+      #   redirect_to "/users/index"
+      post = Post.find(params[:id])
+      if current_user.id != post.user.id
+        flash[:notice] = "権限なし"
+        redirect_to users_path
+      end
+    end
 
 end
